@@ -5,11 +5,17 @@
 	class Model
 	{
 		// public $dsn; 
-		public $pdo;
+		// public $pdo;
+		private $pdo;
 
-		public function __construct($dsn, $login, $password)
+		public function getPdo()
 		{
-			$this->dsn = $dsn;
+			return $this->pdo;
+		}
+
+		public function __construct(string $dsn, string $login, string $password)
+		{
+			// $this->dsn = $dsn;
 			// Строка соеденения с базой данных 
 			// $this->dsn = 'mysql:host=127.0.0.1;dbname=mvc_lesson;';
 			// Создаём экземпляр класса для работы с БД

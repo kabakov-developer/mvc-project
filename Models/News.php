@@ -12,8 +12,7 @@
 			$sql = 'SELECT * FROM News';
 
 			// Возвращаем полученные из БД данные 
-			$arr = $this->pdo->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
-			return $arr;
+			return $this->getPdo()->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
 		}
 	}
 
