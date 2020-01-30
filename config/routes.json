@@ -1,0 +1,8 @@
+{
+	"/"         : "/main/main",
+	"/news"     : "/news/list",
+	"/item"     : "/news/item",
+	"/news/item": "/news/item",
+	"/form"     : "/news/form",
+	"/404"      : "/main/errorPage"
+}

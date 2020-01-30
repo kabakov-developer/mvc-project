@@ -23,8 +23,15 @@
 				}
 			}
 
+			ob_start();
+			include $fullPath;
+
+			$content = ob_get_contents();
+			ob_end_clean();
+
 			// Отображаем представление
-			include($fullPath);
+			include __DIR__ . '/../Views/layout.php';
+			// include($fullPath);
 
 		} 
 

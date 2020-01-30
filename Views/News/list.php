@@ -16,6 +16,11 @@
 			<div class="description">
 				<span><?= $item['description']; ?></span>
 			</div>
+
+			<div>
+				<!-- <a href="/item/<?= $item['id'] ?>">Link on one news</a> -->
+				<a href="/item?id=<?= $item['id'] ?>">Link on one news</a>
+			</div>
 		</div>
 	<?php endforeach ?>
 </div>	
