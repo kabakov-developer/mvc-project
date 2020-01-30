@@ -1,19 +1,23 @@
 <?php  
 
-	// namespace Controllers;
+	namespace Controllers;
 
-	// use System\View;
+	use System\View;
 
-	// // Главный контроллер приложения
+	// Главный контроллер приложения
 
-	// class mainController
-	// {
+	class mainController
+	{
 		
-	// 	public function actionMain()
-	// 	{
-	// 		View::render('index');
-	// 	}
+		public function actionMain()
+		{
+			View::render('index');
+		}
 
-	// }
+		public function actionErrorPage()
+		{
+			View::render('404');
+		}
+	}
 
 ?>

@@ -2,18 +2,22 @@
 
 	namespace Models;
 
+
 	class News extends Model
 	{
 
-		public function displayAll()
+		public function getTableName()
 		{
-			// $model = new Model('mysql:host=127.0.0.1;dbname=mvc_lesson;', 'root', 'admin');
-			// SQL запрос на получение всех новостей
-			$sql = 'SELECT * FROM News';
-
-			// Возвращаем полученные из БД данные 
-			return $this->getPdo()->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
+			return 'News'; 
 		}
+
+		public function insertData(string $title, string $description)
+		{
+			$sql = "INSERT INTO News (title, description) VALUES ('$title', '$description')";
+
+			return $this->getPdo()->exec($sql);
+		}
+
 	}
 
 ?>

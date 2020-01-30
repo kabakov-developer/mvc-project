@@ -2,25 +2,41 @@
 
 	namespace Models;
 
+	use Services\ConfigService;
+
 	class Model
 	{
-		// public $dsn; 
-		// public $pdo;
+
 		private $pdo;
+
+		public function __construct()
+		{
+			$config = ConfigService::getConfig();
+
+			$this->pdo = new \PDO('mysql:host='.$config->database->host.';dbname='.$config->database->dbname, $config->database->username, $config->database->password);
+		}
 
 		public function getPdo()
 		{
 			return $this->pdo;
 		}
 
-		public function __construct(string $dsn, string $login, string $password)
+		public function displayAll() : array
 		{
-			// $this->dsn = $dsn;
-			// Строка соеденения с базой данных 
-			// $this->dsn = 'mysql:host=127.0.0.1;dbname=mvc_lesson;';
-			// Создаём экземпляр класса для работы с БД
-			$this->pdo = new \PDO($dsn, $login, $password);
+			// SQL запрос на получение всех записей из таблицы, переданной в getTableName
+			$sql = 'SELECT * FROM ' . static::getTableName();
+
+			// Возвращаем полученные из БД данные 
+			return $this->getPdo()->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
 		}
+
+		public function displayOne(int $id) : array
+		{
+			$sql = 'SELECT * FROM ' . static::getTableName() . ' WHERE id=' . $id;
+
+			return $this->getPdo()->query($sql)->fetch(\PDO::FETCH_ASSOC);
+		}
+
 	}
 
 ?>

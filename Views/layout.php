@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Homework</title>
 </head>
 <body>
-
+	<?= $content; ?>
 </body>
 </html>
