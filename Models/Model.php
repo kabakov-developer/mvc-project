@@ -4,7 +4,7 @@
 
 	use Services\ConfigService;
 
-	class Model
+	abstract class Model
 	{
 
 		private $pdo;
@@ -36,6 +36,17 @@
 
 			return $this->getPdo()->query($sql)->fetch(\PDO::FETCH_ASSOC);
 		}
+
+
+
+		// public function insertData()
+		// {
+
+		// 	foreach ($key as $value) {
+				
+		// 	}
+
+		// } 
 
 	}
 
