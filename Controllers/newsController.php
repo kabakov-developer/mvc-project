@@ -43,15 +43,24 @@
 
 		public function actionForm()
 		{
-			// $con = new Model();
 			$con = new News();
 
 			if (isset($_POST['submit'])) {
-				$title = $_POST['title'];
-				$description = $_POST['description'];
 
-				$con->insertData($title, $description);
+				foreach ($_POST as $key => $value) {
+
+			    	// echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."<br>";
+				// $title = $_POST['title'];
+				// $description = $_POST['description'];
+				// $con->insertData($title, $description);
+					$con->insertData($key, $value);
+
+				}
 			}
+
+			// foreach ($_POST as $key => $value) {
+			//     echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."<br>";
+			// }
 
 			View::render('News/form');
 		}
