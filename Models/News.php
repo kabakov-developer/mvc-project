@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 	namespace Models;
 
@@ -8,7 +8,7 @@
 
 		public function getTableName()
 		{
-			return 'News'; 
+			return 'News';
 		}
 
 		// public function insertData(string $title, string $description)
@@ -19,17 +19,30 @@
 		// }
 		public function insertData($key, $value)
 		{
-			$array = [
-				$key => $value,
-			];
 
-			var_dump($array);exit;
-			$sql = "INSERT INTO News ('$array[$key]') VALUES ('$value')";
-			var_dump($sql);exit;
+			// foreach ($_POST as $key => $value) {
+				$key = $key . ',';
+				$value = "'". $value . "'" . ',';
+
+				// echo $key . $value;
+				$sql = "INSERT INTO news ($key) VALUES ($value)";
+				echo $sql;
+				return $this->getPdo()->exec($sql);
+
+			// }
+
+			// $sql = "INSERT INTO News ('$array[$key]') VALUES ('$value')";
+			// var_dump($sql);exit;
 
 
-			return $this->getPdo()->exec($sql);
+			// return $this->getPdo()->exec($sql);
 		}
+
+		// public function insertTestData()
+		// {
+		// 	$sql = "INSERT INTO News (title, description) VALUES ('news 9', 'description 9')";
+		// 	return $this->getPdo()->exec($sql);
+		// }
 
 	}
 
