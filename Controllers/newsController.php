@@ -46,22 +46,11 @@
 			$con = new News();
 
 			if (isset($_POST['submit'])) {
-
-				foreach ($_POST as $key => $value) {
-
-			    	// echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."<br>";
-				// $title = $_POST['title'];
-				// $description = $_POST['description'];
-				// $con->insertData($title, $description);
-					$con->insertData($key, $value);
-
-				}
+				unset($_POST['submit']);
+				$arr = $_POST;
+				$con->insertData($arr);
 			}
-
-			// foreach ($_POST as $key => $value) {
-			//     echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."<br>";
-			// }
-
+			
 			View::render('News/form');
 		}
 	}

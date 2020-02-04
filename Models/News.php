@@ -5,32 +5,25 @@
 
 	class News extends Model
 	{
-
 		public function getTableName()
 		{
 			return 'News'; 
 		}
 
-		// public function insertData(string $title, string $description)
-		// {
-		// 	$sql = "INSERT INTO News (title, description) VALUES ('$title', '$description')";
-
-		// 	return $this->getPdo()->exec($sql);
-		// }
-		public function insertData($key, $value)
+		public function insertData($arr)
 		{
-			$array = [
-				$key => $value,
-			];
+			foreach ($arr as $column => $value) {
+				$columns[] = $column;
+				$values[]  = $value;
+			}
 
-			var_dump($array);exit;
-			$sql = "INSERT INTO News ('$array[$key]') VALUES ('$value')";
-			var_dump($sql);exit;
+				$columns = implode(', ', $columns);
+				$values  = implode("', '", $values);
 
-
+			$sql = "INSERT INTO News ($columns) VALUES ('$values')";
+			echo $sql;
 			return $this->getPdo()->exec($sql);
 		}
-
 	}
 
 ?>
