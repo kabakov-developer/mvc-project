@@ -7,6 +7,6 @@
 		<div>
 			<textarea name="description"></textarea>
 		</div>
-		<input type="submit" name="submit" value="submit">
+		<button type="submit" name="submit" value="submit">Submit</button>
 	</form>
 </div>
