@@ -12,16 +12,20 @@
 
 		public function insertData($arr)
 		{
-			foreach ($arr as $column => $value) {
-				$columns[] = $column;
-				$values[]  = $value;
-			}
+			$columns = array_keys($arr);
+			$values  = array_values($arr);
+ 
+			// foreach ($arr as $column => $value) {
+			// 	$columns[] = $column;
+			// 	$values[]  = $value;
+			// }
 
-				$columns = implode(', ', $columns);
-				$values  = implode("', '", $values);
+			$columns = implode(', ', $columns);
+			$values  = implode("', '", $values);
 
 			$sql = "INSERT INTO News ($columns) VALUES ('$values')";
-			echo $sql;
+			// echo $sql;
+			
 			return $this->getPdo()->exec($sql);
 		}
 	}
