@@ -37,6 +37,21 @@
 			return $this->getPdo()->query($sql)->fetch(\PDO::FETCH_ASSOC);
 		}
 
+		public function insertData($arr)
+		{	
+
+			$columns = array_keys($arr);
+			$values  = array_values($arr);
+ 
+			$columns = implode(', ', $columns);
+			$values  = implode("', '", $values);
+
+			$sql = "INSERT INTO ". static::getTableName() . " ($columns) VALUES ('$values')";
+			var_dump($sql);
+			return $this->getPdo()->exec($sql);
+			
+		}
+
 	}
 
 ?>
