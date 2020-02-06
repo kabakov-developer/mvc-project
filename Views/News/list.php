@@ -6,7 +6,7 @@
 
 <h2>Новости</h2>
 
-<div class="news-block">
+<div class="news-block container">
 	<?php foreach ($data as $item): ?>
 		<div class="news-item" style="border: 1px solid black">
 			<div class="title">

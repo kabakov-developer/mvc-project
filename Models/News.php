@@ -10,24 +10,24 @@
 			return 'News'; 
 		}
 
-		public function insertData($arr)
-		{
-			$columns = array_keys($arr);
-			$values  = array_values($arr);
+		// public function insertData($arr)
+		// {
+		// 	$columns = array_keys($arr);
+		// 	$values  = array_values($arr);
  
-			// foreach ($arr as $column => $value) {
-			// 	$columns[] = $column;
-			// 	$values[]  = $value;
-			// }
+		// 	// foreach ($arr as $column => $value) {
+		// 	// 	$columns[] = $column;
+		// 	// 	$values[]  = $value;
+		// 	// }
 
-			$columns = implode(', ', $columns);
-			$values  = implode("', '", $values);
+		// 	$columns = implode(', ', $columns);
+		// 	$values  = implode("', '", $values);
 
-			$sql = "INSERT INTO News ($columns) VALUES ('$values')";
-			// echo $sql;
+		// 	$sql = "INSERT INTO News ($columns) VALUES ('$values')";
+		// 	var_dump($sql);
+		// 	return $this->getPdo()->exec($sql);
 			
-			return $this->getPdo()->exec($sql);
-		}
+		// }
 	}
 
 ?>

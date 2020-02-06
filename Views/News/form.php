@@ -1,9 +1,10 @@
-<div>
+<div class="container">
 	<h2>Вставить данные о новой новости</h2>
 	<form method="POST" id="form-news">
 		<div>
 			<input type="text" name="title">
 		</div>
+		<br>
 		<div>
 			<textarea name="description"></textarea>
 		</div>

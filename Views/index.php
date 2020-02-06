@@ -1,7 +1,15 @@
+<div class="container">
 	<h2>Главная страница</h2>
 	<div class="main-page">
 		<p>Добро пожаловать на главную страницу нашего первого
 			<strong>MVC</strong> фреймворка
 		</p>
-		<a href="/news">Новости портала</a>
+		<div>
+			<a href="/news">Новости портала</a>
+		</div>
+		<br>
+		<div>
+			<a href="/form">Форма для отправки данных в базу</a>
+		</div>
 	</div>
+</div>	
