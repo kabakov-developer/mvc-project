@@ -8,6 +8,7 @@
 		<div>
 			<textarea name="description"></textarea>
 		</div>
+		<br>
 		<input type="submit" name="submit" value="submit">
 	</form>
 </div>

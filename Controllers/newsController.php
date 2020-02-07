@@ -48,6 +48,9 @@
 			if (isset($_POST['submit'])) {
 				unset($_POST['submit']);
 				$arr = $_POST;
+				
+				$arr = str_replace([';', '(', ')', '-'], '', $arr);
+
 				$con->insertData($arr);
 			}
 			

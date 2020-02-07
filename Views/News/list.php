@@ -3,8 +3,9 @@
 	*	@var array $data - массив новостей
 	**/
 ?>
-
-<h2>Новости</h2>
+<div class="container">
+	<h2>Новости</h2>
+</div>
 
 <div class="news-block container">
 	<?php foreach ($data as $item): ?>
