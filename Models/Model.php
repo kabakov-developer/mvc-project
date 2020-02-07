@@ -47,7 +47,8 @@
 			$values  = implode("', '", $values);
 
 			$sql = "INSERT INTO ". static::getTableName() . " ($columns) VALUES ('$values')";
-			var_dump($sql);
+			var_dump($sql);exit;
+
 			return $this->getPdo()->exec($sql);
 			
 		}
