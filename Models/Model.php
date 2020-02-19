@@ -39,17 +39,33 @@
 
 		public function insertData($arr)
 		{	
+			try {
+				
+				$columns 	= array_keys($arr);
+				$values  	= array_values($arr);
 
-			$columns = array_keys($arr);
-			$values  = array_values($arr);
- 
-			$columns = implode(', ', $columns);
-			$values  = implode("', '", $values);
+				$columnsX 	= array_keys($arr);	
+				$columnsYX 	= array_keys($arr);	
+				$columnsX 	= implode(', :', $columnsX);
+				$valuesXY  	= array_values($arr);
+	 
+				$columns 	= implode(', ', $columns);
+				$values  	= implode("', '", $values);
 
-			$sql = "INSERT INTO ". static::getTableName() . " ($columns) VALUES ('$values')";
-			var_dump($sql);exit;
+				$stmt 		= $this->getPdo()->prepare("INSERT INTO ". static::getTableName() . " ($columns) VALUES (:$columnsX)");
 
-			return $this->getPdo()->exec($sql);
+				$i = 0;
+				foreach ($columnsYX as $col) {
+					$mask = ":".$col;
+					$stmt->bindParam($mask, $valuesXY[$i]);
+					$i++;
+				}
+
+				$stmt->execute();
+
+			} catch (Exception $e) {
+				var_dump("Ошибка вставки данных в базу данных: " . $e)	
+			}
 			
 		}
 
