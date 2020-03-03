@@ -64,9 +64,26 @@
 				$stmt->execute();
 
 			} catch (Exception $e) {
-				var_dump("Ошибка вставки данных в базу данных: " . $e)	
+				var_dump("Ошибка вставки данных в базу данных: " . $e);
 			}
-			
+		}
+
+		public function updateData($arr, $id)
+		{
+
+			try {
+				$columns 	= array_keys($arr);
+				$columns 	= implode('=?, ', $columns) . '=?';
+				$values  	= array_values($arr);
+				array_push($values, $id);
+
+				$sql = "UPDATE ". static::getTableName() . " SET $columns WHERE id=?";
+				$update = $this->getPdo()->prepare($sql)->execute($values);
+				header('Location: /');
+
+			} catch (Exception $e) {
+				var_dump("Ошибка вставки данных в базу данных: " . $e);
+			}
 		}
 
 	}

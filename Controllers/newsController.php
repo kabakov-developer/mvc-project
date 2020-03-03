@@ -53,6 +53,25 @@
 			
 			View::render('News/form');
 		}
+		
+		public function actionUpdate() : void
+		{
+			$id = $_GET['id'];
+
+			$news = new News();
+
+			$data = $news->displayOne($id);
+
+			if (isset($_POST['submit'])) {
+				unset($_POST['submit']);
+				$arr = $_POST;
+				$news->updateData($arr, $id);
+			};
+
+			View::render('News/update',[
+				'data' => $data,
+			]);
+		}
 	}
 
 ?>
