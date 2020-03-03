@@ -8,20 +8,21 @@
 </div>
 
 <div class="news-block container">
-	<?php foreach ($data as $item): ?>
-		<div class="news-item" style="border: 1px solid black">
-			<div class="title">
-				<span><?= $item['title']; ?></span>
-			</div>
-
-			<div class="description">
-				<span><?= $item['description']; ?></span>
-			</div>
-
-			<div>
-				<!-- <a href="/item/<?= $item['id'] ?>">Link on one news</a> -->
-				<a href="/item?id=<?= $item['id'] ?>">Link on one news</a>
-			</div>
-		</div>
-	<?php endforeach ?>
+	<table border="1" width="100%" cellpadding="5" cellpadding="3">
+		<?php foreach ($data as $item): ?>
+			<tr>
+				<td><?= $item['title']; ?></td>
+				<td><?= $item['description']; ?></td>
+				<td align="center">
+					<a href="/item?id=<?= $item['id'] ?>">View</a>
+				</td>
+				<td align="center">
+					<a href="/update?id=<?= $item['id'] ?>">Update</a>
+				</td>
+				<td align="center">
+					<a href="#">Delete</a>
+				</td>
+			</tr>
+		<?php endforeach ?>
+	</table>
 </div>	
