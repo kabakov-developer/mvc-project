@@ -62,6 +62,7 @@
 				}
 
 				$stmt->execute();
+				header('Location: /');
 
 			} catch (Exception $e) {
 				var_dump("Ошибка вставки данных в базу данных: " . $e);
@@ -70,7 +71,6 @@
 
 		public function updateData($arr, $id)
 		{
-
 			try {
 				$columns 	= array_keys($arr);
 				$columns 	= implode('=?, ', $columns) . '=?';
@@ -84,6 +84,17 @@
 			} catch (Exception $e) {
 				var_dump("Ошибка вставки данных в базу данных: " . $e);
 			}
+		}
+
+		public function deleteRecord($id)
+		{
+			try {
+				$sql = "DELETE FROM " . static::getTableName() . " WHERE id = $id" ;
+				$this->getPdo()->exec($sql);
+			} catch (Exception $e) {
+				var_dump("Ошибка удаления данных из базы данных: " . $e);
+			}
+			header('Location: /');
 		}
 
 	}
