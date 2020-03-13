@@ -3,6 +3,7 @@
 	"/news"     	: "/news/list",
 	"/item"     	: "/news/item",
 	"/update"   	: "/news/update",
+	"/delete"   	: "/news/delete",
 	"/news/item"	: "/news/item",
 	"/form"     	: "/news/form",
 	"/404"      	: "/main/errorPage"

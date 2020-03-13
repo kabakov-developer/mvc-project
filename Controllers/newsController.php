@@ -72,6 +72,25 @@
 				'data' => $data,
 			]);
 		}
+
+		public function actionDelete()
+		{
+			$id = $_GET['id'];
+
+			$news = new News();
+
+			$data = $news->displayOne($id);
+
+			if(isset($_POST['delete'])) {
+				$news->deleteRecord($id);
+			}
+
+			// View::render('News/delete');
+			View::render('News/delete',[
+				'data' => $data,
+			]);
+
+		}
 	}
 
 ?>
