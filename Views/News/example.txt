@@ -1,0 +1,35 @@
+$model->update([
+	'title' => 'title 1',
+	'user_id' => 4
+], [
+	'description' => 'pampam',
+]);
+
+UPDATE news SET description='pampam' WHERE title='title 1' AND user_id=4
+
+
+$model->update([
+	'title' => 'title 1',
+	'user_id' => 4,
+
+], [
+	'description' => 'pampam',
+	'date' => '01.01.1997',
+]);
+
+UPDATE news SET description='pampam', date='01.01.1997' WHERE title='title 1' AND user_id=4
+
+___
+
+
+// $_POST = [
+	'login' => 'admin',
+	'password' => 'pass',
+]
+
+$model = new User();
+$model->update($_POST, [
+	'user_id' => 1,
+]);
+
+UPDATE user SET login=...

@@ -41,7 +41,7 @@
 			]);
 		}
 
-		public function actionForm()
+		public function actionCreate()
 		{
 			$con = new News();
 
@@ -51,7 +51,7 @@
 				$con->insertData($arr);
 			}
 			
-			View::render('News/form');
+			View::render('News/create');
 		}
 		
 		public function actionUpdate() : void
@@ -85,7 +85,6 @@
 				$news->deleteRecord($id);
 			}
 
-			// View::render('News/delete');
 			View::render('News/delete',[
 				'data' => $data,
 			]);

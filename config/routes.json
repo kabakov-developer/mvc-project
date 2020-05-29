@@ -5,6 +5,6 @@
 	"/update"   	: "/news/update",
 	"/delete"   	: "/news/delete",
 	"/news/item"	: "/news/item",
-	"/form"     	: "/news/form",
+	"/create"     	: "/news/create",
 	"/404"      	: "/main/errorPage"
 }
