@@ -1,5 +1,5 @@
 <div class="container">
-	<h2>Вставить данные о новой новости</h2>
+	<h2>Создание новости</h2>
 	<form method="POST" id="form-news">
 		<div>
 			<input type="text" name="title">

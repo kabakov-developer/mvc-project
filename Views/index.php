@@ -9,7 +9,7 @@
 		</div>
 		<br>
 		<div>
-			<a href="/form">Форма для отправки данных в базу</a>
+			<a href="/create">Создать новость</a>
 		</div>
 	</div>
 </div>	
